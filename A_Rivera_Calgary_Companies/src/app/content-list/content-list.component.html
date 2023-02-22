@@ -1,0 +1,14 @@
+<div *ngFor="let content of contents | slice: 0.5" class="content-card">
+    <h1>{{ content.title }}</h1>
+    <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+    <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+    <p>{{content.description}}</p>
+    <p>Creator: {{ content.creator}}</p>
+    <p *ngIf="content.type">Type: {{ content.type}}</p>
+    <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+    <p *ngIf="content.address">address: {{ content.address}}</p>
+    <p *ngIf="content.email">email: {{ content.email}}</p>
+    <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
+    <p *ngIf="content.phone">phone: {{ content.phone}}</p>
+    <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
+</div>
