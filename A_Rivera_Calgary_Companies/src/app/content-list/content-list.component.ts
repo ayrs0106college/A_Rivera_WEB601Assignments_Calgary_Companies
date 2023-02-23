@@ -1,3 +1,4 @@
+import { keyframes } from "@angular/animations";
 import { Component } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 
@@ -8,13 +9,19 @@ import { Content } from '../helper-files/content-interface';
 })
 
 export class ContentListComponent {
-contents: Content[];
+  contents: Content[];
+  title: string = '';
+  isTitleExists: boolean | null = null;
 
 // contentList: ContentList;
 
 images(content: any){
   console.log(`Id: ${content.id}`);
   console.log(`Title: ${content.title}`);
+}
+
+searchForCompany(){
+  this.isTitleExists = this.contents.some(content => content.title === this.title);
 }
 
 constructor(){
@@ -35,7 +42,7 @@ constructor(){
     `,
     creator: "Enbridge Gas",
     imgURL: "https://www.enbridgegas.com/-/media/Extranet-Pages/residential/Landing-page/Hero-image/HWP_Hero-Banner-Feb-Bill-insert.ashx?rev=fd04d671d9454e2bba55aacb87dde1a6",
-    type: 'Natural Gas Company',
+    type: 'Natural Gas',
     tags: ['Natural Gas'],
     address: '3840 Rhodes Dr, Windsor, ON N9A 6N7',
     email: 'careers@enbridge.com',
@@ -83,7 +90,7 @@ constructor(){
     description: "CANADIAN NATURAL RESOURCES is Oil and Gas company with headquarters in Calgary, Canada with business operation in exploration, development and production of oil and gas products. Headquarters is in Canada. Canadian Natural is a senior oil and natural gas production company, with continuing operations in its core areas located in western Canada, the U.K. portion of the North Sea and Offshore Africa.",
     creator: "CANADIAN NATURAL",
     imgURL: 'https://www.cnrl.com/content/uploads/2022/12/Budget_Home-Carousel-Image.jpg',
-    type: 'Energy Resources',
+    type: 'Energy',
     tags: ['Oil and Natural gas'],
     address: '2100, 855 - 2 Street S.W. Calgary, AB T2P 4J8',
     email: 'paul.mendes@cnrl.com',
@@ -97,7 +104,7 @@ constructor(){
     description: "TC ENERGY CORPORATION business is supply of natural gas and crude oil through pipelines and generates electricity. Headquarters is in Calgary, Canada.",
     creator: "TC ENERGY CORPORATION",
     imgURL: 'https://www.tcenergy.com/siteassets/about/contact/transcanada-tower-calgary-1140x640.jpg',
-    type: 'Energy sector',
+    type: 'Energy',
     tags: ['Energy sector, Mexico'],
     address: '450 - 1 Street S.W. Calgary, AB, Canada, T2P 5H1',
     email: 'hr_services@tcenergy.com',
@@ -111,7 +118,7 @@ constructor(){
     description: "SUNCOR ENERGY is Canada based Energy, Oil and Gas Company. Headquarters is in Canada.",
     creator: "SUNCOR ENERGY",
     imgURL: 'https://sustainability-prd-cdn.suncor.com/-/media/project/suncor/images/home/rich-kruger.jpg?mw=1366&modified=20230221213429&hash=F10D05C801EB34F9625D0E1CAAAB0BC2',
-    type: 'Energy Sector',
+    type: 'Energy',
     tags: ['Energy'],
     address: 'P.O. Box 2844, 150 - 6 Avenue S.W. Calgary, Alberta, Canada T2P 3E3',
     email: 'media@suncor.com',
@@ -146,6 +153,76 @@ constructor(){
     phone: '+1 587-315-1259, (403) 237-3737',
     url: 'https://www.value.today/company/imperial-oil',
     website: 'https://www.imperialoil.ca/en-ca/careers/careers',
+    status: false,
+  },
+  {id: 8,
+    title: "SHAW COMMUNICATIONS",
+    description: "SHAW COMMUNICATIONS is Telecom Company with headquarters in Calgary, Canada. Provides Telephone, Television, Internet and Mobile services.",
+    creator: "SHAW COMMUNICATIONS",
+    imgURL: 'https://images.ctfassets.net/tzb4ihmthaev/5rUDHleYOI7odNvxcgmyWi/a25ce61491227c140412574caa183439/1MHomes-superpromo-image-L_2x.jpg?q=80&fl=progressive',
+    type: 'Comunications',
+    tags: ['Comunications, https://www.shaw.ca/corporate/careers, https://www.shaw.ca/corporate/careers/people-departments'],
+    address: '630 3 Ave SW, Calgary, AB, T2P 4L4',
+    email: 'NotAvailable',
+    phone: '+1 888-472-2222',
+    url: 'https://www.value.today/company/shaw-communications',
+    website: 'https://www.shaw.ca/',
+    status: false,
+  },
+  {id: 9,
+    title: "CANADIAN UTILITIES",
+    description: "Canada Based Utility Company with approximately 5,200 employees and assets of $21 billion, is an ATCO Company. Generates Electricity, distributes and transmission of natural gas and electricity is core business. ATCO is a diversified global corporation delivering service excellence and innovative business solutions in",
+    creator: "ATCO CANADIAN UTILITIES",
+    imgURL: 'https://www.atco.com/content/dam/web/home-page/wheat-power-transmission-line-article-tile.png/jcr:content/renditions/jpeg-1920-1920.jpeg',
+    type: 'Utilities',
+    tags: ['https://www.atco.com/en-ca/about-us/careers.html, https://www.atco.com/en-ca/about-us/careers/hiring-process.html'],
+    address: '5302 Forand St SW, Calgary, AB T3E 8B4',
+    email: 'Not Available',
+    phone: '+1 844-687-2826',
+    url: 'https://www.value.today/company/canadian-utilities',
+    website: 'https://www.atco.com/en-ca.html',
+    status: false,
+  },
+  {id: 10,
+    title: "KEYERA",
+    description: "KEYERA provides services to Oil and Gas sector companies to store and transport oil and gas. This company provides essential services to oil and gas producers in the Western Canada Sedimentary Basin, including NGL gathering and processing, fractionation, storage, transportation, logistics and marketing services. We also provide diluent logistics services for oil sands customer. Headquarters in Canada",
+    creator: "KEYERA",
+    imgURL: 'https://images.thestar.com/qmwaqpKtvaUqtaD8DGt86VGxerY=/1086x869/smart/filters:cb(1660742198110):format(webp)/https://www.thestar.com/content/dam/thestar/business/2022/08/17/keyera-and-canadian-national-railway-to-evaluate-alberta-terminal-project/20220817080844-e4b661cbf547a159653e1ffcd29a9c9178960a40ef860bb8089a60ce4eb12e05.jpg',
+    type: 'Energy',
+    tags: ['https://www.keyera.com/careers/'],
+    address: 'Ampersand, West Tower 200, The, 144 4 Ave SW #6th, Calgary, AB T2P 3N4',
+    email: 'careers@keyera.com',
+    phone: '(403) 205-8300',
+    url: 'https://www.value.today/company/keyera',
+    website: 'https://www.keyera.com/',
+    status: false,
+  },
+  {id: 11,
+    title: "BOARDWALK REAL ESTATE INVESTMENT TRUST",
+    description: "Boardwalk Real Estate Investment Trust is a Commercial Real Estate Investment company. The headquarters is in Canada",
+    creator: "BOARDWALK REAL ESTATE INVESTMENT TRUST",
+    imgURL: 'https://www.bwalk.com/media/1033/lavish-amenities.jpg?anchor=center&mode=crop&width=380&height=380&rnd=131776716390000000&format=webp',
+    type: 'Real Estate',
+    tags: ['https://www.bwalk.com/en-ca/careers/'],
+    address: '200 – 1501 1st St. SW Calgary, AB T2R 0W1',
+    email: 'Not available',
+    phone: '1-800-310-9255, (403) 531-9255',
+    url: 'https://www.value.today/company/boardwalk-real-estate-investment-trust',
+    website: 'https://www.bwalk.com/en-ca/',
+    status: false,
+  },
+  {id: 12,
+    title: "Undefined",
+    description: "Undefined",
+    creator: "Undefined",
+    imgURL: 'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png',
+    // type: '',
+    tags: ['Undefined'],
+    address: 'Undefined',
+    email: 'Undefined',
+    phone: 'Undefined',
+    url: 'Undefined',
+    website: 'Undefined',
     status: false,
   },
 ]
