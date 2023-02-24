@@ -17,6 +17,7 @@
             <h1>{{ CompanyData.title }}</h1>
             <p>Contacted: {{ CompanyData.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
             <img *ngIf="CompanyData.imgURL" [src]="CompanyData.imgURL" [alt]="title" (click)="images(CompanyData.imgURL)"/>
+            <img *ngIf="!CompanyData.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="CompanyData.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{CompanyData.description}}</p>
             <p>Creator: {{ CompanyData.creator}}</p>
             <p *ngIf="CompanyData.type">Type: {{ CompanyData.type}}</p>
@@ -37,6 +38,7 @@
             <h1>{{ content.title }}</h1>
             <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
             <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+            <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{content.description}}</p>
             <p>Creator: {{ content.creator}}</p>
             <p *ngIf="content.type">Type: {{ content.type}}</p>
@@ -57,6 +59,7 @@
             <h1>{{ content.title }}</h1>
             <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
             <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+            <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{content.description}}</p>
             <p>Creator: {{ content.creator}}</p>
             <p *ngIf="content.type">Type: {{ content.type}}</p>
@@ -73,13 +76,13 @@
         <p [style.color]="CompsByType && 'black'">
             {{CompsByType && 'Companies by type'}}
         </p>
-
         <div *ngFor="let CompType of CompTypes">
             <b>{{ CompType }}</b>
             <div *ngFor="let content of contents | filters:CompType" class="content-card Exist">
                 <h1>{{ content.title }}</h1>
                 <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
                 <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+                <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
                 <p>{{content.description}}</p>
                 <p>Creator: {{ content.creator}}</p>
                 <p *ngIf="content.type">Type: {{ content.type}}</p>

@@ -279,7 +279,7 @@ constructor(){
         title: "Undefined",
         description: "Undefined",
         creator: "Undefined",
-        imgURL: 'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png',
+        // imgURL: 'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png',
         // type: '',
         tags: ['Undefined'],
         address: 'Undefined',
