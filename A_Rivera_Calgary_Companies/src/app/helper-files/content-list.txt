@@ -11,7 +11,9 @@ export class ContentList {
     addCompany(company: Content) {
         this.companies.push(company);
     }
-    countCompanies(){return this.companies.length}
+    countCompanies(){
+        return this.companies.length
+    }
 
     readCompany(index: number){
         let company = this.companies[index];

@@ -1,14 +1,98 @@
 <div class="searchArea">
     <div class="input">
-        <input type="text" [(ngModel)]="title" placeholder="Search Company...">
-        <button (click)="searchForCompany()">Search</button>
+        <input type="text" [(ngModel)]="title" placeholder="Company Name">
+        <button (click)="searchForCompany()">Search</button><br><br>
+        <input type="text" [(ngModel)]="type" placeholder="Type of Companies">
+        <button (click)="searchForCompaniesType()">Search</button><br><br>
+        <button (click)="DisplayAll()">Display all Companies</button>
+        <button (click)="DisplayAll()">Clean</button>
+        <button (click)="CompaniesByType()">Display by type</button>
     </div>
 
-    <div class="output" *ngIf="isTitleExists !== null">
-        <p [style.color]="isTitleExists ? 'green' : 'red'">
-            {{isTitleExists ? 'Title exist' : 'No title exists'}}
+    <div class="output" *ngIf="CompanyExists !== null">
+        <p [style.color]="CompanyExists ? 'green' : 'red'">
+            {{CompanyExists ? 'Company exists' : 'Company does not exist'}}
         </p>
+        <div *ngIf="CompanyData !== null" class="content-card Exist">
+            <h1>{{ CompanyData.title }}</h1>
+            <p>Contacted: {{ CompanyData.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+            <img *ngIf="CompanyData.imgURL" [src]="CompanyData.imgURL" [alt]="title" (click)="images(CompanyData.imgURL)"/>
+            <p>{{CompanyData.description}}</p>
+            <p>Creator: {{ CompanyData.creator}}</p>
+            <p *ngIf="CompanyData.type">Type: {{ CompanyData.type}}</p>
+            <p *ngIf="CompanyData.tags">Tags: {{ CompanyData.tags}}</p>
+            <p *ngIf="CompanyData.address">address: {{ CompanyData.address}}</p>
+            <p *ngIf="CompanyData.email">email: {{ CompanyData.email}}</p>
+            <a *ngIf="CompanyData.url" [href]="CompanyData.url" >url: {{ CompanyData.url}}</a>
+            <p *ngIf="CompanyData.phone">phone: {{ CompanyData.phone}}</p>
+            <a *ngIf="CompanyData.website" [href]="CompanyData.website">website: {{ CompanyData.website}}</a>
+        </div>
     </div>
+
+    <div class="output" *ngIf="CompaniesTypeExist !== null">
+        <p [style.color]="CompaniesTypeExist ? 'green' : 'red'">
+            {{CompaniesTypeExist ? 'List of existing Companies' : 'List of Companies with Type unset'}}
+        </p>
+        <div *ngFor="let content of contents | filters:CompaniesType[0].type" class="content-card Exist">
+            <h1>{{ content.title }}</h1>
+            <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+            <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+            <p>{{content.description}}</p>
+            <p>Creator: {{ content.creator}}</p>
+            <p *ngIf="content.type">Type: {{ content.type}}</p>
+            <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+            <p *ngIf="content.address">address: {{ content.address}}</p>
+            <p *ngIf="content.email">email: {{ content.email}}</p>
+            <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
+            <p *ngIf="content.phone">phone: {{ content.phone}}</p>
+            <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
+        </div>                
+    </div>
+
+    <div class="output" *ngIf="AllCompanies === true">
+        <p [style.color]="AllCompanies && 'black'">
+            {{AllCompanies && 'All Companies'}}
+        </p>
+        <div *ngFor="let content of contents" class="content-card All">
+            <h1>{{ content.title }}</h1>
+            <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+            <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+            <p>{{content.description}}</p>
+            <p>Creator: {{ content.creator}}</p>
+            <p *ngIf="content.type">Type: {{ content.type}}</p>
+            <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+            <p *ngIf="content.address">address: {{ content.address}}</p>
+            <p *ngIf="content.email">email: {{ content.email}}</p>
+            <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
+            <p *ngIf="content.phone">phone: {{ content.phone}}</p>
+            <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
+        </div>
+    </div>
+
+    <div class="output" *ngIf="CompsByType === true">
+        <p [style.color]="CompsByType && 'black'">
+            {{CompsByType && 'Companies by type'}}
+        </p>
+
+        <div *ngFor="let CompType of CompTypes">
+            <b>{{ CompType }}</b>
+            <div *ngFor="let content of contents | filters:CompType" class="content-card Exist">
+                <h1>{{ content.title }}</h1>
+                <p>Contacted: {{ content.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+                <img *ngIf="content.imgURL" [src]="content.imgURL" [alt]="content.title" (click)="images(content.imgURL)"/>
+                <p>{{content.description}}</p>
+                <p>Creator: {{ content.creator}}</p>
+                <p *ngIf="content.type">Type: {{ content.type}}</p>
+                <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+                <p *ngIf="content.address">address: {{ content.address}}</p>
+                <p *ngIf="content.email">email: {{ content.email}}</p>
+                <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
+                <p *ngIf="content.phone">phone: {{ content.phone}}</p>
+                <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
+            </div> 
+        </div>
+    </div>
+
 </div>
 
 <!-- Assignment 2 -->
@@ -26,7 +110,7 @@
     <p *ngIf="content.phone">phone: {{ content.phone}}</p>
     <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
 </div> -->
-<div>
+<!-- <div>
     <h1>Energy and Oil</h1>
     <div *ngFor="let content of contents | filters:'Energy'" class="content-card Enery">
         <h1>{{ content.title }}</h1>
@@ -93,4 +177,4 @@
         <p *ngIf="content.phone">phone: {{ content.phone}}</p>
         <a *ngIf="content.website" [href]="content.website">website: {{ content.website}}</a>
     </div>
-</div>
+</div> -->
