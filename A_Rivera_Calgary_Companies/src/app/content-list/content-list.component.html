@@ -20,8 +20,12 @@
             <img *ngIf="!CompanyData.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="CompanyData.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{CompanyData.description}}</p>
             <p>Creator: {{ CompanyData.creator}}</p>
-            <p *ngIf="CompanyData.type">Type: {{ CompanyData.type}}</p>
-            <p *ngIf="CompanyData.tags">Tags: {{ CompanyData.tags}}</p>
+            <p *ngIf="CompanyData.type" typeHoverAffect>Type: {{ CompanyData.type}}</p>
+            <!-- <p *ngIf="content.tags" appHoverAffect defaultColor="gray">Tags: {{ content.tags}}</p> -->
+            Tags:
+            <div *ngFor="let content of CompanyData.tags">
+                <p *ngIf="content" appHoverAffect defaultColor="black" [style]="'float:left'">&nbsp;{{ content }};&nbsp;</p>
+            </div><br><br>
             <p *ngIf="CompanyData.address">address: {{ CompanyData.address}}</p>
             <p *ngIf="CompanyData.email">email: {{ CompanyData.email}}</p>
             <a *ngIf="CompanyData.url" [href]="CompanyData.url" >url: {{ CompanyData.url}}</a>
@@ -41,8 +45,12 @@
             <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{content.description}}</p>
             <p>Creator: {{ content.creator}}</p>
-            <p *ngIf="content.type">Type: {{ content.type}}</p>
-            <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+            <p *ngIf="content.type" typeHoverAffect>Type: {{ content.type}}</p>
+            <!-- <p *ngIf="content.tags" appHoverAffect defaultColor="gray">Tags: {{ content.tags}}</p> -->
+            Tags:
+            <div *ngFor="let content of content.tags">
+                <p *ngIf="content" appHoverAffect defaultColor="black" [style]="'float:left'">&nbsp;{{ content }};&nbsp;</p>
+            </div><br><br>
             <p *ngIf="content.address">address: {{ content.address}}</p>
             <p *ngIf="content.email">email: {{ content.email}}</p>
             <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
@@ -62,8 +70,12 @@
             <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
             <p>{{content.description}}</p>
             <p>Creator: {{ content.creator}}</p>
-            <p *ngIf="content.type">Type: {{ content.type}}</p>
-            <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+            <p *ngIf="content.type" typeHoverAffect>Type: {{ content.type}}</p>
+            <!-- <p *ngIf="content.tags" appHoverAffect defaultColor="gray">Tags: {{ content.tags}}</p> -->
+            Tags:
+            <div *ngFor="let content of content.tags">
+                <p *ngIf="content" appHoverAffect defaultColor="black" [style]="'float:left'">&nbsp;{{ content }};&nbsp;</p>
+            </div><br><br>
             <p *ngIf="content.address">address: {{ content.address}}</p>
             <p *ngIf="content.email">email: {{ content.email}}</p>
             <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
@@ -85,8 +97,12 @@
                 <img *ngIf="!content.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="content.title" (click)="images('https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png')"/>
                 <p>{{content.description}}</p>
                 <p>Creator: {{ content.creator}}</p>
-                <p *ngIf="content.type">Type: {{ content.type}}</p>
-                <p *ngIf="content.tags">Tags: {{ content.tags}}</p>
+                <p *ngIf="content.type" typeHoverAffect>Type: {{ content.type}}</p>
+                <!-- <p *ngIf="content.tags" appHoverAffect defaultColor="gray">Tags: {{ content.tags}}</p> -->
+                Tags:
+                <div *ngFor="let content of content.tags">
+                    <p *ngIf="content" appHoverAffect defaultColor="black" [style]="'float:left'">&nbsp;{{ content }};&nbsp;</p>
+                </div><br><br>
                 <p *ngIf="content.address">address: {{ content.address}}</p>
                 <p *ngIf="content.email">email: {{ content.email}}</p>
                 <a *ngIf="content.url" [href]="content.url" >url: {{ content.url}}</a>
