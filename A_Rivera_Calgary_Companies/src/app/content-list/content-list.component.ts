@@ -1,6 +1,7 @@
 import { keyframes } from "@angular/animations";
 import { Component } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
+import { CreateContentComponent } from '../create-content/create-content.component';
 
 @Component({
   selector: 'app-content-list',
@@ -18,8 +19,9 @@ export class ContentListComponent {
   CompaniesType: any = [];
   AllCompanies: boolean = true;
   CompsByType: boolean = false;
-  CompTypes: string[] = [];
-// contentList: ContentList;
+  CompTypes: string[] = [];  
+  errMsg: boolean = false;
+  // contentList: ContentList;
 
 images(content: any){
   console.log(`Company Id: ${content.id}`);
@@ -87,6 +89,22 @@ CompaniesByType(){
       {!this.CompTypes.includes(content.type) && this.CompTypes.push(content.type)}
     }
   })
+}
+
+addContent(newContent: Content){
+  const AddPromise = new Promise((resolve, reject) => {
+    this.contents.push(newContent);
+    this.contents = [...this.contents];
+    resolve(newContent.title);
+  });
+  AddPromise.then(title => {
+    console.log(`Company "${title}" succesfully added to the list!`);
+    //Clear the input fields
+    this.errMsg = false;
+  }).catch(err => {
+    this.errMsg = true,
+    console.log(`Company not added due to error: ` + err)
+  });
 }
 
 constructor(){
@@ -276,6 +294,20 @@ constructor(){
         status: false,
       },
       {id: 12,
+        title: "SpectrumH2",
+        description: "SpectrumH2 is an innovative low-cost supplier of Hydrogen and Carbon Storage solutions. Along with our strategic partners, we are accelerating the transition to zero-emission hydrogen in the petrochemical, agricultural, power, and transportation industries. Developing innovative solutions for sustainable hydrogen applications and carbon sequestration.",
+        creator: "SpectrumH2",
+        imgURL: 'https://static.wixstatic.com/media/d8b9f4_d536b1ac1f734840bddcc5aa078d68f5~mv2.jpg/v1/fill/w_1349,h_779,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/d8b9f4_d536b1ac1f734840bddcc5aa078d68f5~mv2.jpg',
+        type: 'Energy',
+        tags: ['Hydrogen','Energy'],
+        address: 'Suite 1250, 639-5 Ave SW Calgary, AB, T2P 0M9',
+        email: 'info@spectrumh2.ca',
+        phone: '403-771-9126',
+        url: 'https://www.spectrumh2.ca/',
+        website: 'https://www.linkedin.com/company/spectrumh2/?originalSubdomain=ca',
+        status: false,
+      },
+      {id: 13,
         title: "Undefined",
         description: "Undefined",
         creator: "Undefined",
@@ -291,4 +323,4 @@ constructor(){
       },
     ]
   }
-}
+} 
