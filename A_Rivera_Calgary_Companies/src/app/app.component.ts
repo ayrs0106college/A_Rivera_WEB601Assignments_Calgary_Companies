@@ -33,6 +33,7 @@ export class AppComponent {
       })
     } else {
       this.CompanyData = null
+      alert("Company does not exist")
     }
   }
 }
