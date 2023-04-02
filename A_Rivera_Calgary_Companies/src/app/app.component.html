@@ -1,123 +1,3 @@
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  h2{
-    margin: 8px 0;
-  }
-  .toolbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-color: #000;
-    color: white;
-    font-weight: 600;
-  }
-  .toolbar img {
-    margin: 0 16px;
-  }
-
-  .content {
-    display: flex;
-    margin: 82px auto 32px;
-    flex-direction: column;
-    align-items: left;
-  }
-
-  a,
-  a:visited,
-  a:hover {
-    color: #7590ab;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: #7590ab;
-  }
-  footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    line-height: 20px;
-  }
-
-  footer a {
-    display: flex;
-    align-items: center;
-  }
-
-  .github-star-badge {
-    color: #24292e;
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    padding: 3px 10px;
-    border: 1px solid rgba(27,31,35,.2);
-    border-radius: 3px;
-    background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
-    margin-left: 4px;
-    font-weight: 600;
-  }
-
-  .github-star-badge:hover {
-    background-image: linear-gradient(-180deg,#f0f3f6,#e6ebf1 90%);
-    border-color: rgba(27,31,35,.35);
-    background-position: -.5em;
-  }
-
-  .github-star-badge .material-icons {
-    height: 16px;
-    width: 16px;
-    margin-right: 4px;
-  }
-
-  svg#clouds {
-    position: fixed;
-    bottom: -160px;
-    left: -230px;
-    z-index: -10;
-    width: 1920px;
-  }
-
-  /* Responsive Styles */
-  @media screen and (max-width: 767px) {
-    .card-container > *:not(.circle-link) ,
-    .terminal {
-      width: 100%;
-    }
-
-    .card:not(.highlight-card) {
-      height: 16px;
-      margin: 8px 0;
-    }
-
-    .card.highlight-card span {
-      margin-left: 72px;
-    }
-
-    svg#rocket-smoke {
-      right: 120px;
-      transform: rotate(-5deg);
-    }
-  }
-
-  @media screen and (max-width: 575px) {
-    svg#rocket-smoke {
-      display: none;
-      visibility: hidden;
-    }
-  }
-</style>
-
 <!-- Toolbar -->
 <div class="toolbar" role="banner">
     <img
@@ -133,9 +13,40 @@
 </div>
 
 <div class="content" role="main">
-  <app-content-list></app-content-list>
   <!-- <app-content-card></app-content-card> -->
+  <div>
+    <input type=number #CompId [(ngModel)]="id" placeholder="Company ID">
+    <button (click)="searchById(CompId.value)">Search by ID</button><br>
+    
+    <app-message></app-message>
 
+    <div class="output" *ngIf="CompanyExists !== null">
+      <p [style.color]="CompanyExists ? 'green' : 'red'">
+          {{CompanyExists ? 'Company exists' : 'Company does not exist'}}
+      </p>
+      <div *ngIf="CompanyData !== null" class="content-card Exist">
+          <h1>{{ CompanyData.title }}</h1>
+          <p>Contacted: {{ CompanyData.status}}</p><h6>(Intentionally shown up to know where I have research oportunities)</h6>
+          <img *ngIf="CompanyData.imgURL" [src]="CompanyData.imgURL" [alt]="title"/>
+          <img *ngIf="!CompanyData.imgURL" [src]="'https://padlet.net/packs/media/images/laboratory_dark-a9646ce910d22acd31ac0cb8ecbf6f4e.png'" [alt]="CompanyData.title"/>
+          <p>{{CompanyData.description}}</p>
+          <p>Creator: {{ CompanyData.creator}}</p>
+          <p *ngIf="CompanyData.type" typeHoverAffect>Type: {{ CompanyData.type}}</p>
+          Tags:
+          <div *ngFor="let content of CompanyData.tags">
+              <p *ngIf="content" appHoverAffect defaultColor="black" [style]="'float:left'">&nbsp;{{ content }};&nbsp;</p>
+          </div><br><br>
+          <p *ngIf="CompanyData.address">address: {{ CompanyData.address}}</p>
+          <p *ngIf="CompanyData.email">email: {{ CompanyData.email}}</p>
+          <a *ngIf="CompanyData.url" [href]="CompanyData.url" >url: {{ CompanyData.url}}</a>
+          <p *ngIf="CompanyData.phone">phone: {{ CompanyData.phone}}</p>
+          <a *ngIf="CompanyData.website" [href]="CompanyData.website">website: {{ CompanyData.website}}</a>
+      </div>
+    </div>
+  </div>
+
+  <app-content-list></app-content-list>
+  
   <!-- Footer -->
   <footer>
       <div class="github-star-badge">
