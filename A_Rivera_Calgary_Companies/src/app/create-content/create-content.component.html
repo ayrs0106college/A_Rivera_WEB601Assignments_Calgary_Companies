@@ -1,0 +1,17 @@
+<div class="AddCompanyContainer">
+    <input type="number" [(ngModel)]="newContent.id" placeholder="ID">
+    <p>Capture a New Company Prospect</p>
+    <input type="text" [(ngModel)]="newContent.title" placeholder="Company Name">
+    <input type="text" [(ngModel)]="newContent.description" placeholder="Description">
+    <input type="text" [(ngModel)]="newContent.creator" placeholder="Creator">
+    <input type="text" [(ngModel)]="newContent.imgURL" placeholder="Image URL">
+    <input type="text" [(ngModel)]="newContent.type" placeholder="Type">
+    <input type="text" [(ngModel)]="newContent.tags" placeholder="tags">
+    <input type="text" [(ngModel)]="newContent.address" placeholder="address">
+    <input type="text" [(ngModel)]="newContent.email" placeholder="email">
+    <input type="text" [(ngModel)]="newContent.phone" placeholder="phone">
+    <input type="text" [(ngModel)]="newContent.url" placeholder="url">
+    <input type="text" [(ngModel)]="newContent.website" placeholder="website  URL">
+    <input type=boolean [(ngModel)]="newContent.status" placeholder="status">
+    <button (click)="addContent()">Add Company</button>
+</div>
