@@ -1,5 +1,7 @@
 <div class="searchArea">
-    <app-create-content (onCreation)="addContent($event)"></app-create-content>
+    <!-- <app-create-content (onCreation)="addContent($event)"></app-create-content> -->
+    <app-modify-content-component (onCreation)="addContent($event)"></app-modify-content-component>
+
     <p class="errMsg" *ngIf="errMsg">Content Addition failed</p>
       <div class="input">
         <input type="text" [(ngModel)]="title" placeholder="Company Name">
