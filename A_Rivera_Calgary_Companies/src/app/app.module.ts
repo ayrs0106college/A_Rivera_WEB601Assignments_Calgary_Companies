@@ -13,6 +13,7 @@ import { CreateContentComponent } from './create-content/create-content.componen
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { InMemoryDataService } from './services/in-memory-data.service';
       delay: 1000,
       }),
     HttpClientInMemoryWebApiModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
