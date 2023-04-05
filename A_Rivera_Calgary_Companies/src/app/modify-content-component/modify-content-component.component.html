@@ -9,21 +9,48 @@
         <button (click)="addContent()">Add Content</button>
     </div>
 </div> -->
-
-<div class="AddCompanyContainer">
-    <input type="number" [(ngModel)]="newCompany.id" placeholder="ID">
-    <p>Capture a New Company Prospect</p>
-    <input type="text" [(ngModel)]="newCompany.title" placeholder="Company Name">
-    <input type="text" [(ngModel)]="newCompany.description" placeholder="Description">
-    <input type="text" [(ngModel)]="newCompany.creator" placeholder="Creator">
-    <input type="text" [(ngModel)]="newCompany.imgURL" placeholder="Image URL">
-    <input type="text" [(ngModel)]="newCompany.type" placeholder="Type">
-    <input type="text" [(ngModel)]="newCompany.tags" placeholder="tags">
-    <input type="text" [(ngModel)]="newCompany.address" placeholder="address">
-    <input type="text" [(ngModel)]="newCompany.email" placeholder="email">
-    <input type="text" [(ngModel)]="newCompany.phone" placeholder="phone">
-    <input type="text" [(ngModel)]="newCompany.url" placeholder="url">
-    <input type="text" [(ngModel)]="newCompany.website" placeholder="website  URL">
-    <input type=boolean [(ngModel)]="newCompany.status" placeholder="status">
-    <button (click)="addContent()">Add Company</button>
+<h1 mat-dialog-title>Add Companies</h1>
+<div mat-dialog-content class="AddCompanyContainer">
+    <!-- <mat-form-field>
+        <input matInput type="number" [(ngModel)]="newCompany.id" placeholder="ID">
+    </mat-form-field> -->
+    <!-- <p>Capture a New Company Prospect</p> -->
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.title" placeholder="Company Name">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.description" placeholder="Description">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.creator" placeholder="Creator">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.imgURL" placeholder="Image URL">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.type" placeholder="Type">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.tags" placeholder="tags">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.address" placeholder="address">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.phone" placeholder="phone">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.url" placeholder="url">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.website" placeholder="website  URL">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput type=boolean [(ngModel)]="newCompany.status" placeholder="status">
+    </mat-form-field>
+    <button mat-raised-button (click)="addContent()">Add Company</button>
 </div>
+<button mat-raised-button (click)="openDialog('350ms', '350ms')">Add New Content</button>

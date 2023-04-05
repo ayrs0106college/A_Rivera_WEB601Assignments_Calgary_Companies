@@ -1,14 +1,20 @@
 <div class="searchArea">
-    <app-create-content (onCreation)="addContent($event)"></app-create-content>
+    <!-- <app-create-content (onCreation)="addContent($event)"></app-create-content> -->
+    <app-modify-content-component (onCreation)="addContent($event)"></app-modify-content-component>
+
     <p class="errMsg" *ngIf="errMsg">Content Addition failed</p>
       <div class="input">
-        <input type="text" [(ngModel)]="title" placeholder="Company Name">
-        <button (click)="searchForCompany()">Search by Name</button><br><br>
-        <input type="text" [(ngModel)]="type" placeholder="Type of Companies">
-        <button (click)="searchForCompaniesType()">Search by Type</button><br><br>
-        <button (click)="DisplayAll()">Display all Companies</button>
-        <button (click)="DisplayAll()">Clean</button>
-        <button (click)="CompaniesByType()">Display by type</button>
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="title" placeholder="Company Name"/>
+        </mat-form-field>
+        <button mat-raised-button (click)="searchForCompany()">Search by Name</button><br><br>
+        <mat-form-field>
+            <input matInput type="text" [(ngModel)]="type" placeholder="Type of Companies">
+        </mat-form-field>
+        <button mat-raised-button (click)="searchForCompaniesType()">Search by Type</button><br><br>
+        <button mat-raised-button (click)="DisplayAll()">Display all Companies</button>
+        <button mat-raised-button (click)="DisplayAll()">Clean</button>
+        <button mat-raised-button (click)="CompaniesByType()">Display by type</button>
     </div>
 
     <div class="output" *ngIf="CompanyExists !== null">

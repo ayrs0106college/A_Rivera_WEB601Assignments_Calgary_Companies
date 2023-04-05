@@ -15,8 +15,10 @@
 <div class="content" role="main">
   <!-- <app-content-card></app-content-card> -->
   <div>
-    <input type=number #CompId [(ngModel)]="id" placeholder="Company ID">
-    <button (click)="searchById(CompId.value)">Search by ID</button><br>
+    <mat-form-field>      
+      <input matInput type=number #CompId [(ngModel)]="id" placeholder="Company ID">
+    </mat-form-field>
+    <button mat-raised-button (click)="searchById(CompId.value)">Search by ID</button><br>
     
     <app-message></app-message>
 

@@ -14,6 +14,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -37,6 +41,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       }),
     HttpClientInMemoryWebApiModule,
     BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
