@@ -10,6 +10,9 @@ import { HoverAffectDirective, typeHoverAffectDirective } from './hover-affect.d
 import { MessageComponent } from './message/message.component';
 import { ModifyContentComponentComponent } from './modify-content-component/modify-content-component.component';
 import { CreateContentComponent } from './create-content/create-content.component';
+import { HttpClientModule } from "@angular/common/http";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -25,9 +28,15 @@ import { CreateContentComponent } from './create-content/create-content.componen
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+      delay: 1000,
+      }),
+    HttpClientInMemoryWebApiModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

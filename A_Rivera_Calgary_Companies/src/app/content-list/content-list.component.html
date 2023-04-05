@@ -1,5 +1,7 @@
 <div class="searchArea">
-    <div class="input">
+    <app-create-content (onCreation)="addContent($event)"></app-create-content>
+    <p class="errMsg" *ngIf="errMsg">Content Addition failed</p>
+      <div class="input">
         <input type="text" [(ngModel)]="title" placeholder="Company Name">
         <button (click)="searchForCompany()">Search by Name</button><br><br>
         <input type="text" [(ngModel)]="type" placeholder="Type of Companies">

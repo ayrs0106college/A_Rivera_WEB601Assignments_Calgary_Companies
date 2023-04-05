@@ -1,1 +1,29 @@
-<p>modify-content-component works!</p>
+<!-- <div>
+    Title: <br> <input type="text" [(ngModel)]="newContent.title"> <br> <br>
+    Description: <br> <input type="text" [(ngModel)]="newContent.description"> <br> <br>
+    Creator: <br> <input type="text" [(ngModel)]="newContent.creator"> <br> <br>
+    Image Link: <br> <input type="text" [(ngModel)]="newContent.imgURL"> <br> <br> 
+    Type: <br> <input type="text" [(ngModel)]="newContent.type"> <br> <br>
+
+    <div>
+        <button (click)="addContent()">Add Content</button>
+    </div>
+</div> -->
+
+<div class="AddCompanyContainer">
+    <input type="number" [(ngModel)]="newCompany.id" placeholder="ID">
+    <p>Capture a New Company Prospect</p>
+    <input type="text" [(ngModel)]="newCompany.title" placeholder="Company Name">
+    <input type="text" [(ngModel)]="newCompany.description" placeholder="Description">
+    <input type="text" [(ngModel)]="newCompany.creator" placeholder="Creator">
+    <input type="text" [(ngModel)]="newCompany.imgURL" placeholder="Image URL">
+    <input type="text" [(ngModel)]="newCompany.type" placeholder="Type">
+    <input type="text" [(ngModel)]="newCompany.tags" placeholder="tags">
+    <input type="text" [(ngModel)]="newCompany.address" placeholder="address">
+    <input type="text" [(ngModel)]="newCompany.email" placeholder="email">
+    <input type="text" [(ngModel)]="newCompany.phone" placeholder="phone">
+    <input type="text" [(ngModel)]="newCompany.url" placeholder="url">
+    <input type="text" [(ngModel)]="newCompany.website" placeholder="website  URL">
+    <input type=boolean [(ngModel)]="newCompany.status" placeholder="status">
+    <button (click)="addContent()">Add Company</button>
+</div>

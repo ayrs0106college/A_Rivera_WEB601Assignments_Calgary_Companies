@@ -1,4 +1,3 @@
-import { keyframes } from "@angular/animations";
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { CompaniesService } from '../services/companies.service';
@@ -20,6 +19,7 @@ export class ContentListComponent {
   AllCompanies: boolean = true;
   CompsByType: boolean = false;
   CompTypes: string[] = [];
+  errMsg: boolean = false;
 
   topCompanyContent: Content[] = [];
   
@@ -87,6 +87,35 @@ export class ContentListComponent {
       }
     })
   }
+
+  // addContent(newContent: Content){
+  //   const AddPromise = new Promise((resolve, reject) => {
+  //     this.contents.push(newContent);
+  //     this.contents = [...this.contents];
+  //     resolve(newContent.title);
+  //   });
+  //   AddPromise.then(title => {
+  //     console.log(`Company "${title}" succesfully added to the list!`);
+  //     //Clear the input fields
+  //     this.errMsg = false;
+  //   }).catch(err => {
+  //     this.errMsg = true,
+  //     console.log(`Company not added due to error: ` + err)
+  //   });
+  // }
+
+  addContent(newCompany: Content): void {
+    this.CompaniesService.addCompany(newCompany).subscribe(newCompanyFromServer =>
+      this.contents.push(newCompanyFromServer)
+    );
+  }
+
+  updateContentInList(CompanyId: Content): void {
+    this.CompaniesService.updateContent(CompanyId).subscribe(() =>
+      console.log("Content updated successfully")
+    );
+  }
+
   constructor(private CompaniesService: CompaniesService){
       // this.contentList = new ContentList(); 
       // this.contents= [
