@@ -1,20 +1,9 @@
-<!-- <div>
-    Title: <br> <input type="text" [(ngModel)]="newContent.title"> <br> <br>
-    Description: <br> <input type="text" [(ngModel)]="newContent.description"> <br> <br>
-    Creator: <br> <input type="text" [(ngModel)]="newContent.creator"> <br> <br>
-    Image Link: <br> <input type="text" [(ngModel)]="newContent.imgURL"> <br> <br> 
-    Type: <br> <input type="text" [(ngModel)]="newContent.type"> <br> <br>
-
-    <div>
-        <button (click)="addContent()">Add Content</button>
-    </div>
-</div> -->
 <h1 mat-dialog-title>Add Companies</h1>
 <div mat-dialog-content class="AddCompanyContainer">
-    <!-- <mat-form-field>
-        <input matInput type="number" [(ngModel)]="newCompany.id" placeholder="ID">
-    </mat-form-field> -->
-    <!-- <p>Capture a New Company Prospect</p> -->
+    <mat-form-field>
+        <input matInput type="text" [(ngModel)]="newCompany.Id" placeholder="Company Id" disabled>
+    </mat-form-field>
+    <p>Add a new company data</p>
     <mat-form-field>
         <input matInput type="text" [(ngModel)]="newCompany.title" placeholder="Company Name">
     </mat-form-field>
